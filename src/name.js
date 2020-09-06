@@ -47,6 +47,8 @@ AvatarName.prototype.getName = function() {
     if (name.length > 6) {
       name = name.charAt(0).toUpperCase()
     }
+  } else if (fullName.length < 2) {
+    name = fullName
   } else {
     switch (this.options.nameType) {
       case 'lastName':
@@ -54,7 +56,9 @@ AvatarName.prototype.getName = function() {
         name = fullName.slice(0, 1)
         break
       case 'firstName':
+      default:
         name = fullName.slice(1)
+        break
     }
   }
 
